@@ -52,10 +52,10 @@ void setup()
 }
 void check(){
       dht.read();
-      Serial.print("L1: " + String(analogRead(A1)));
-      Serial.print(" L2: " + String(analogRead(A3)));
-      Serial.print(" L3: " + String(analogRead(A4)));
-      Serial.print(" L4: " + String(analogRead(A5)));
+      Serial.print("L1: " + String(analogRead(A0)));
+      Serial.print(" L2: " + String(analogRead(A1)));
+      Serial.print(" L3: " + String(analogRead(A2)));
+      Serial.print(" L4: " + String(analogRead(A3)));
       
       Serial.print(" AX: " + String(accel.readAX())); 
       Serial.print(" AY: " + String(accel.readAX())); 
@@ -126,10 +126,10 @@ void sendTab(bool li = true, bool ac = true, bool gy = false, bool ma = true, bo
       web1+=String(schet);
       web1+= "</TD>";    
       if (li){
+      web1+= "<TD>"+String(float(analogRead(A0)), 3)+"</TD>";
       web1+= "<TD>"+String(float(analogRead(A1)), 3)+"</TD>";
+      web1+= "<TD>"+String(float(analogRead(A2)), 3)+"</TD>";
       web1+= "<TD>"+String(float(analogRead(A3)), 3)+"</TD>";
-      web1+= "<TD>"+String(float(analogRead(A4)), 3)+"</TD>";
-      web1+= "<TD>"+String(float(analogRead(A5)), 3)+"</TD>";
       }
       if (ac){  
       web1+= "<TD>"+String(accel.readAX())+"</TD>";
